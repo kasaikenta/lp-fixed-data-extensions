@@ -25,7 +25,7 @@ python3 verification/verify_parent_sources.py
 python3 build_codes.py check
 ```
 
-The construction verifier evaluates the explicit expressions in the manuscript’s construction of the Mitten extension (Section 2), reconstructs every binary entry, checks CSS orthogonality, ranks, row weights and column weights, and checks that the two evaluations use identical constituent expressions. Its output is saved in `verification_results/construction_table_verification.json`. The matrix verifier also checks that every stored upper-bound support has zero syndrome and lies outside the stabilizer row space.
+The construction verifier evaluates the explicit expressions in the manuscript’s Mitten example (Section 3), reconstructs every binary entry, checks CSS orthogonality, ranks, row weights and column weights, and checks that the two evaluations use identical constituent expressions. Its output is saved in `verification_results/construction_table_verification.json`. The matrix verifier also checks that every stored upper-bound support has zero syndrome and lies outside the stabilizer row space.
 
 The group is G(p,m,rho)=<x,w | x^p=w^m=1, wxw^-1=x^rho>, with gcd(rho,p)=1 and rho^m=1 modulo p. Normal coordinates (i,j) denote x^i w^j and multiply as (i,j)(u,t)=(i+rho^j u,j+t), modulo p and m. Left and right regular actions commute; this establishes CSS orthogonality for the lifted-product construction. The resulting dimension is calculated from the binary ranks.
 
