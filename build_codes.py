@@ -103,7 +103,7 @@ def describe(code):
 
 def parents_check():
     records=[]
-    for name in ['Mitten-975','Hong-390','Hong-550','LS-P31-2X5']:
+    for name in ['Mitten-975','Hong-550']:
         par=parent(name)
         spec={'id':name,'parent':name,'p':par['p0'],'rho':par.get('rho0'),'rule':0,'seed':0}
         code=make(spec);old=CSSCode.load(ROOT/'reference'/f'{name}.json')
@@ -117,7 +117,7 @@ def parents_check():
 
 def manifest():
     specs=[]
-    for name in ['Mitten-975','Hong-390','Hong-550','LS-P31-2X5']:
+    for name in ['Mitten-975','Hong-550']:
         par=parent(name)
         sizes={'Mitten-975':list(range(14,27)),'Hong-390':[31,37,43,49,61],'Hong-550':[31,41,61,71],'LS-P31-2X5':[37,41,43,47,53,61]}[name]
         for rid in range(16):

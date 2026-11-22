@@ -1,0 +1,62 @@
+[
+  {
+    "id": "Mitten-975_p22_r3_v0",
+    "cutoff": 26,
+    "mode": "nested",
+    "attempts": 10000,
+    "asset": "Mitten-975_p22_r3_v0_w26.tar.gz",
+    "bytes": 6762948,
+    "sha256": "0c13751e4610ad7e24bf00abf980d804abe2770aeb5d25be08a5bd60f6b68bbf",
+    "code_sha256": "a1d45bd138ec4286d94dfa59af1a1bbe200cf47c27cf583df341140a8477836b"
+  },
+  {
+    "id": "established_2325",
+    "cutoff": 29,
+    "mode": "nested",
+    "attempts": 63528,
+    "asset": "established_2325_w29.tar.gz",
+    "bytes": 40343576,
+    "sha256": "9c969689e28bd2906e15268fb25d6d8229d8b94f35d0802074dc4c84b1506945",
+    "code_sha256": "c5c1663efe4a761c4a2150523d9ccd871bdc28a4c859622555b36d4c64f78796"
+  },
+  {
+    "id": "Hong-390_p61_r47_v2",
+    "cutoff": 17,
+    "mode": "flat",
+    "attempts": 128,
+    "asset": "Hong-390_p61_r47_v2_w17.tar.gz",
+    "bytes": 407529,
+    "sha256": "85c7031584361d6c336217b35dc73687950811ced289ac634f480cf6df2dbd3f",
+    "code_sha256": "bdece1336cc278f724296e9e0a9d97b2b2db4a3f74090b23785a13aeedfadb74"
+  },
+  {
+    "id": "Hong-550_p41_r18_v1",
+    "cutoff": 23,
+    "mode": "nested",
+    "attempts": 3608,
+    "asset": "Hong-550_p41_r18_v1_w23.tar.gz",
+    "bytes": 2204783,
+    "sha256": "957f476267aa818ed951f2c2dfdb66dd60a613c0fe6c3f0a83016f9a4209326f",
+    "code_sha256": "da7451c63356e839aff8a05b3c840ff869dbaafdb5ea36fac05343e8090c50cf"
+  },
+  {
+    "id": "LS-P31-2X5_p47_rNone_v5",
+    "cutoff": 13,
+    "mode": "flat",
+    "attempts": 64,
+    "asset": "LS-P31-2X5_p47_rNone_v5_w13.tar.gz",
+    "bytes": 462223,
+    "sha256": "5e49fecd78032d04ed1f31cb625e69742860fbcf2fd6b425db0f36da971eeadf",
+    "code_sha256": "53bfc36786930500e5f3e58e9cbe74433e2e612ac5639a56a18768ff7255df8f"
+  },
+  {
+    "id": "LS-P31-2X5_p61_rNone_v1",
+    "cutoff": 14,
+    "mode": "flat",
+    "attempts": 64,
+    "asset": "LS-P31-2X5_p61_rNone_v1_w14.tar.gz",
+    "bytes": 546411,
+    "sha256": "a36699457ece001302be47a4d263ff0ebff1709ba49c4cc4a50a7233b9b6bd81",
+    "code_sha256": "aa453e0318186989e27cedf979a2e175893be91f4d4e3ebdfc24cf5b6965d437"
+  }
+]

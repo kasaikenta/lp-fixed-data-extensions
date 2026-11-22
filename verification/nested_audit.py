@@ -91,6 +91,7 @@ def scan_archives(snapshot, campaigns, code, scratch):
                 assert key not in chosen, f'Duplicate completed leaf: {key}'
                 chosen[key] = (checked['terminal'], digest(rb))
         db.close()
+        print(f'Audited {attempts} attempts; {len(chosen)} completed exclusions', file=sys.stderr, flush=True)
 
     return chosen, witness_best, attempts
 

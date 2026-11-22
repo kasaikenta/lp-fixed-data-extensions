@@ -1,93 +1,92 @@
 # Fixed-data extensions of high-rate lifted-product codes
 
-Companion data for Kenta Kasai, *Increasing the Distance of High-Rate Lifted-Product Codes by Reusing Fixed Construction Data*.
-This release freezes the ten rows of Table 1. A later ongoing search is not part of this release.
+Version 1.1.0 contains the four codes selected in the current manuscript, their explicit constructions, binary parity-check matrices, logical operators and distance-verification records. The two original codes and their extensions have rate 20%.
 
-## Table-to-data correspondence
+| Family | Code | n | k | Rate | dX | dZ | d | Column weight | Row weight |
+|---|---|---:|---:|---:|---:|---:|---:|---|---:|
+| Mitten LP | Original | 975 | 195 | 20% | 24 | 24 | 24 | {3,6} | 9 |
+| Mitten LP | Extension | 1650 | 330 | 20% | 30 | [30,38] | 30 | {3,6} | 9 |
+| Hong-550 LP | Original | 550 | 110 | 20% | [18,50] | 18 | 18 | {3,6} | 9 |
+| Hong-550 LP | Extension | 1025 | 205 | 20% | 24 | 24 | 24 | {3,6} | 9 |
 
-All support indices are zero-based. Each row links to the actual constituent words and full physical matrices; `records.json` gives logical supports, ranks, geometry and provenance. Distances in brackets are certified intervals, not estimates.
+Here d=min(dX,dZ). Intervals give the established lower and upper bounds. The Mitten extension has exact distance 30 even though its Z-sector distance remains between 30 and 38. For sector X the check is HZ and the stabilizer space is row(HX); sector Z interchanges them. Supports use zero-based qubit indices.
 
-| Table row | Code | n | k | rate | dX | dZ | d | Words | Matrices |
-|---|---|---:|---:|---:|---|---|---|---|---|
-| 1 | Mitten-975 (original) | 975 | 195 | 20% | 24 | 24 | 24 | [words](data/selected/Mitten-975_words.json) | [matrices](data/selected/Mitten-975.json) |
-| 2 | Mitten-975 (extension) | 1650 | 330 | 20% | [27, 30] | [27, 38] | [27, 30] | [words](data/selected/Mitten-975_p22_r3_v0_words.json) | [matrices](data/selected/Mitten-975_p22_r3_v0.json) |
-| 3 | Mitten-975 (extension) | 2325 | 465 | 20% | [30, 84] | 30 | 30 | [words](data/selected/established_2325_words.json) | [matrices](data/selected/established_2325.json) |
-| 4 | Hong-390 (original) | 390 | 78 | 20% | [16, 42] | 16 | 16 | [words](data/selected/Hong-390_words.json) | [matrices](data/selected/Hong-390.json) |
-| 5 | Hong-390 (extension) | 915 | 183 | 20% | 18 | [18, 88] | 18 | [words](data/selected/Hong-390_p61_r47_v2_words.json) | [matrices](data/selected/Hong-390_p61_r47_v2.json) |
-| 6 | Hong-550 (original) | 550 | 110 | 20% | [18, 50] | 18 | 18 | [words](data/selected/Hong-550_words.json) | [matrices](data/selected/Hong-550.json) |
-| 7 | Hong-550 (extension) | 1025 | 205 | 20% | 24 | 24 | 24 | [words](data/selected/Hong-550_p41_r18_v1_words.json) | [matrices](data/selected/Hong-550_p41_r18_v1.json) |
-| 8 | LS-P31-2X5 (original) | 899 | 279 | 31.03% | 8 | 8 | 8 | [words](data/selected/LS-P31-2X5_words.json) | [matrices](data/selected/LS-P31-2X5.json) |
-| 9 | LS-P31-2X5 (extension) | 1363 | 423 | 31.03% | 14 | 14 | 14 | [words](data/selected/LS-P31-2X5_p47_rNone_v5_words.json) | [matrices](data/selected/LS-P31-2X5_p47_rNone_v5.json) |
-| 10 | LS-P31-2X5 (extension) | 1769 | 549 | 31.03% | 15 | 15 | 15 | [words](data/selected/LS-P31-2X5_p61_rNone_v1_words.json) | [matrices](data/selected/LS-P31-2X5_p61_rNone_v1.json) |
+[Selected records](data/selected/records.json) contain both sector supports, ranks and matrix identities. [The comparison table](data/comparison_table.csv) is machine-readable. Each `data/selected/<id>.json` contains sparse `hx` and `hz` row supports and `n`; `*_words.json` contains the evaluated construction input and conventions. The selected IDs are:
 
-The machine-readable correspondence is [records.json](data/selected/records.json); [comparison_table.csv](data/comparison_table.csv) also lists rates and sector bounds. The inferior distance-20 Hong-550 extension is outside the paper's selected table. Full search results from the broader campaign are not claimed to be a classification up to equivalence.
+- `Mitten-975`
+- `Mitten-975_p22_r3_v0`
+- `Hong-550`
+- `Hong-550_p41_r18_v1`
 
-## Reconstruct matrices and verify upper bounds
+## Reproduce the construction and upper bounds
 
-Use Python 3.12 or later on Linux or macOS. The checks use the standard library only.
+Python 3.12 or later and its standard library suffice for the verification commands. Run them from this directory:
 
 ```sh
+python3 verification/verify_constructions.py
 python3 verification/verify_matrices.py
 python3 verification/verify_parent_sources.py
 python3 build_codes.py check
 ```
 
-This independently reconstructs every binary entry from the realized words, checks CSS orthogonality and GF(2) ranks, and verifies every supplied logical operator by zero syndrome and nonmembership in the stabilizer row space. It does not infer lower bounds from an unsuccessful search.
+The construction verifier evaluates the explicit expressions of manuscript Table 2, reconstructs every binary entry, checks CSS orthogonality, ranks, row weights and column weights, and checks that the Hong extension expressions also reproduce its original code when evaluated at the original group parameters. Its output is saved in `verification_results/construction_table_verification.json`. The matrix verifier also checks that every stored upper-bound support has zero syndrome and lies outside the stabilizer row space.
+
+The group is G(p,m,rho)=<x,w | x^p=w^m=1, wxw^-1=x^rho>, with gcd(rho,p)=1 and rho^m=1 modulo p. Normal coordinates (i,j) denote x^i w^j and multiply as (i,j)(u,t)=(i+rho^j u,j+t), modulo p and m. Left and right regular actions commute; this establishes CSS orthogonality for the lifted-product construction. The resulting dimension is calculated from the binary ranks.
+
+| Code | (p,m,rho) | Coordinate order |
+|---|---|---|
+| Mitten original | (13,15,9) | i then j |
+| Mitten extension | (22,15,3) | i then j |
+| Hong-550 original | (22,5,3) | j then i |
+| Hong-550 extension | (41,5,18) | j then i |
+
+[Construction data](data/constructions.json) specify each product as an ordered list of generator/exponent pairs. These expressions use positive right multiplication R_h e_u=e_(u h), with the Mitten inverses written explicitly. The older `*_words.json` representation stores those Mitten terms before inversion and marks `inverse_right=true`; inversion must be evaluated at the target parameters. The Hong extension uses integer representatives congruent to the original exponents, including a negative exponent. Retain those integers when changing the group. The verifier checks both representations against the same matrices.
+
+Changing the group changes which small supports have zero syndrome or represent nontrivial logical operators. Distance improvement is established for the selected matrices by the exhaustive computations below; the group conditions alone ensure orthogonality.
 
 ## Verify the distance lower bounds
-
-The six release assets contain **all original receipt/stdout/stderr blobs and all partition leaves required for the published extension lower bounds**, along with the corresponding inputs, source files, executable identities and campaign configurations. Historical cutoffs and unrelated scheduler state are omitted. The selected receipt blobs are byte-preserved. This is about 48 MB compressed and 700 MB unpacked.
 
 ```sh
 python3 verification/download_receipts.py
 python3 verification/verify_receipts.py
 ```
 
-One selected extension can be checked with, for example:
+To check one extension:
 
 ```sh
-python3 verification/verify_receipts.py --id established_2325
+python3 verification/verify_receipts.py --id Mitten-975_p22_r3_v0
 ```
 
-The downloader checks each release asset against [receipt_archives.json](data/receipt_archives.json). The verifier checks every unpacked file hash, the physical code identity, native source and executable identities, configurations, symmetry inputs, receipt hashes and completed frontier coverage. A refined residue class must be replaced by all its disjoint children. All required LP parts and root orbits must be covered; an X/Z exchange is used only after its physical verification. The results go into `verification_results/`.
+The two release assets contain the original receipt/stdout/stderr bytes, completed partition leaves, physical inputs, source files, executable identities and configurations needed to exclude all nontrivial logical operators of weight at most 29 for Mitten and at most 23 for Hong-550. The downloader checks sizes and SHA-256 hashes against [receipt_archives.json](data/receipt_archives.json).
 
-These are source-bound exhaustive execution records, not independently checkable formal per-node proof traces. Rechecking records does not rerun the DFS. Stored binaries are only hashed during the audit. They were compiled on TSUBAME4 and are not executed by these verification commands. Every original native invocation and time/node limit is in the receipt's `command` and `limits` fields. Source and compiler details are in each `campaigns/w*/engine/build.json`.
+The verifier checks every archived file hash, code identity, native source and executable identities, configurations, physical symmetries, original receipts and completed frontier coverage. Each refined residue class must be replaced by all its disjoint children. All required LP parts and symmetry orbits must be covered. An X/Z exchange is used only after physical verification. Results are written to `verification_results/`.
 
-Parent lower bounds are adopted from the QEDist paper/catalogue rather than re-established by these extension searches. Their public fixed-version matrices and upper witnesses were separately matched; see [parent provenance](data/parent_provenance.json). In particular, the Mitten construction paper reports an upper bound of 24, while exactness at 24 is taken from QEDist.
+These are source-bound exhaustive execution records, rather than formal per-node proof traces. Record verification does not rerun the DFS. The stored TSUBAME binaries are hashed, not executed. Each receipt retains the native invocation and time/node limits; source and compiler details are in `campaigns/w*/engine/build.json`. Timeouts do not contribute lower bounds. The completed Mitten exclusion contains 233,792 terminal partitions across both sectors and 281,626 recorded attempts, including interrupted attempts and partition refinement.
 
-## Construction and experiment parameters
+Parent lower bounds come from the QEDist paper/catalogue. The original matrices and upper witnesses are matched to its pinned public data; see [parent provenance](data/parent_provenance.json). The Mitten construction article gives the construction and an upper bound of 24; QEDist establishes exactness at 24.
 
-The shared construction uses commuting left and right regular actions. The five-block inputs have three terms per entry. Their group parameters obey gcd(rho,p)=1 and rho^m=1 mod p. Stored Mitten right words are inverted at the **target** parameters; the other group inputs use right multiplication directly. `*_words.json` records `order` and `inverse_right` explicitly, so reconstruction does not depend on a pseudorandom seed. Per-code `*_parameters.json` records the generation parameters.
+## Run a new distance search
 
-The main Mitten example changes (p,m,rho)=(13,15,9) to (31,15,4), retaining the stored words and m. Selecting the third smallest unit satisfying rho^15=1, with cyclic indexing for shorter lists, reproduces both endpoints. Its group orders prevent a surjection to the parent group. The shorter Mitten example uses (22,15,3).
-
-The compact campaign tested 1104 assignments from four parents, with n<=2000, actual rate at least the parent rate, and maximum check weight no larger than the parent's. For each parent, 16 rules chose integer representatives congruent to the parent exponents. Group rules also tested admissible rho=(rho0+p0*t) mod p, 0<=t<64, at fixed m. [manifest.json](data/manifest.json) and [build_codes.py](build_codes.py) retain these rules. The separately established 2325-qubit example is outside that compact length budget.
-
-The cyclic family uses a 2 by 5 constituent with the monomial/binomial pattern in the paper. [cofactor_bound.py](cofactor_bound.py) and [cofactor_witnesses.json](data/cofactor_witnesses.json) supplement the paper's proof of the uniform sector-distance upper bound 17.
-
-## Start a fresh exhaustive search
-
-The pinned upstream CLI can start an independent search after compiling its C++17 source. For example, the following command tests the Hong-390 extension through weight 17 using a uniform partition:
+The bundled upstream CLI can launch a new exhaustive search after compiling its C++17 source. For example:
 
 ```sh
-PYTHONPATH=vendor/QEDist python3 -m cssdist certify data/selected/Hong-390_p61_r47_v2.json --out verification_results/fresh_hong390 --profile lp --cutoff 17 --shards 32 --split-weight 4 --workers 4 --seconds-per-shard 300 --no-large-capacity
-PYTHONPATH=vendor/QEDist python3 -m cssdist audit verification_results/fresh_hong390
+PYTHONPATH=vendor/QEDist python3 -m cssdist certify data/selected/Hong-550_p41_r18_v1.json --out verification_results/fresh_hong550 --profile lp --cutoff 23 --shards 32 --split-weight 4 --workers 4 --seconds-per-shard 300 --no-large-capacity
+PYTHONPATH=vendor/QEDist python3 -m cssdist audit verification_results/fresh_hong550
 ```
 
-This is a new computation, not the recorded adaptive schedule. Any timed-out class remains incomplete; it is never evidence for a lower bound. For the exact original schedule, the release's receipts retain every invocation, cutoff, shard, time/node limit and source identity.
+This command starts a new computation with a uniform partition. Completion is not guaranteed within its per-partition time limit. The release records preserve the original adaptive partition schedule.
 
 ## Sources and software
 
-- Mitten construction: [High-rate qLDPC processors](https://arxiv.org/abs/2607.28795v2), Sec. III, Table I. The original matrix source is a7b/yarn commit `1b58edd24e19b6b5da6814fd3a74ebb376b6e90f`, directory `processor_codes/mitten/[[975,195,24]]`; the paper cites the construction article.
-- Hong inputs: [Quantum LDPC codes with design rate 1/5 and good performance below 1000 physical qubits](https://arxiv.org/abs/2607.27644v1).
-- Cyclic input: [Logical Spectroscopy: Lifted-Product Codes with Addressable Bases](https://arxiv.org/abs/2607.05386v2).
-- Parent distances and LP reduction: [QEDist: Practical Exact Distance Certification for Stabilizer Codes](https://arxiv.org/abs/2611.21709v1).
-- [QEDist software](https://github.com/yeon-lee/QEDist/tree/aeb7006147b777c121fd3ab8c6841da99238a84e), fixed commit `aeb7006147b777c121fd3ab8c6841da99238a84e`. The retained runtime is unmodified and distributed under its [MIT license](vendor/QEDist/LICENSE), with its [notices](vendor/QEDist/NOTICE.md). [Software provenance](data/software_provenance.json) records a byte-for-byte public-tree comparison. The added `verification/nested_audit.py` checks the union of refined partitions; it does not modify the native search.
+- Mitten construction: [High-rate qLDPC processors](https://arxiv.org/abs/2607.28795v2), Sec. III, Table I. Matrix provenance additionally records a7b/yarn commit `1b58edd24e19b6b5da6814fd3a74ebb376b6e90f`, directory `processor_codes/mitten/[[975,195,24]]`.
+- Hong construction: [Quantum LDPC codes with design rate 1/5 and good performance below 1000 physical qubits](https://arxiv.org/abs/2607.27644v1).
+- Parent distances and LP distance reduction: [QEDist: Practical Exact Distance Certification for Stabilizer Codes](https://arxiv.org/abs/2611.21709v1).
+- [QEDist software](https://github.com/yeon-lee/QEDist/tree/aeb7006147b777c121fd3ab8c6841da99238a84e), pinned commit `aeb7006147b777c121fd3ab8c6841da99238a84e`. The retained runtime is unmodified and distributed under its [MIT license](vendor/QEDist/LICENSE), with [notices](vendor/QEDist/NOTICE.md). [Software provenance](data/software_provenance.json) records the public-tree comparison. The added `verification/nested_audit.py` checks the union of refined partitions without modifying the native search.
+
+Earlier candidates are preserved in [history](history/README.md) and the v1.0.1 tag for provenance. They are not part of the current manuscript's selected comparison.
 
 ## Citation
 
-Cite the fixed release, rather than an evolving default branch:
+Kenta Kasai, “Fixed-data extensions of high-rate lifted-product codes: code data and distance-verification records,” version 1.1.0, 2026. [Fixed release](https://github.com/kasaikenta/lp-fixed-data-extensions/releases/tag/v1.1.0).
 
-> Kenta Kasai, “Fixed-data extensions of high-rate lifted-product codes: code data and distance-verification records,” version 1.0.1, 2026. https://github.com/kasaikenta/lp-fixed-data-extensions/releases/tag/v1.0.1
-
-Use [CITATION.cff](CITATION.cff) for machine-readable citation details. Receipt archive checksums are pinned in the tagged repository.
+Machine-readable citation details are in [CITATION.cff](CITATION.cff).

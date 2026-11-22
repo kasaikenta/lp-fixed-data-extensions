@@ -1,0 +1,1 @@
+Earlier research snapshots are retained for provenance. They are not the selected results of the current manuscript. For runnable old releases use the v1.0.1 Git tag; paths in archived snapshots are relative to that release.

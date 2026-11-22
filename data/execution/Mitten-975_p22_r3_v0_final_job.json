@@ -1,0 +1,190 @@
+{
+  "job_id": 9518642,
+  "system": "TSUBAME4",
+  "candidate": "Mitten-975_p22_r3_v0",
+  "scope": "Final continuation of the two-sector exclusion through weight 29; the release receipts also include preceding runs",
+  "timezone": "Asia/Tokyo",
+  "audit_completed": "2026-11-23T00:28:43.477340+09:00",
+  "accounting_records": [
+    {
+      "taskid": "18",
+      "start_time": "11/22/2026 23:49:16.597",
+      "end_time": "11/22/2026 23:49:58.786",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "15.917",
+      "slots": "40"
+    },
+    {
+      "taskid": "10",
+      "start_time": "11/22/2026 23:22:07.102",
+      "end_time": "11/22/2026 23:51:02.762",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "64766.285",
+      "slots": "40"
+    },
+    {
+      "taskid": "7",
+      "start_time": "11/22/2026 23:15:49.687",
+      "end_time": "11/22/2026 23:51:29.097",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "81416.587",
+      "slots": "40"
+    },
+    {
+      "taskid": "21",
+      "start_time": "11/22/2026 23:51:20.155",
+      "end_time": "11/22/2026 23:51:49.600",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "15.706",
+      "slots": "40"
+    },
+    {
+      "taskid": "22",
+      "start_time": "11/22/2026 23:51:41.439",
+      "end_time": "11/22/2026 23:52:11.163",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "16.793",
+      "slots": "40"
+    },
+    {
+      "taskid": "23",
+      "start_time": "11/22/2026 23:52:02.935",
+      "end_time": "11/22/2026 23:52:31.860",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "15.803",
+      "slots": "40"
+    },
+    {
+      "taskid": "25",
+      "start_time": "11/22/2026 23:52:47.359",
+      "end_time": "11/22/2026 23:53:02.705",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "14.980",
+      "slots": "40"
+    },
+    {
+      "taskid": "17",
+      "start_time": "11/22/2026 23:44:48.776",
+      "end_time": "11/22/2026 23:53:23.476",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "11307.030",
+      "slots": "40"
+    },
+    {
+      "taskid": "27",
+      "start_time": "11/22/2026 23:53:30.881",
+      "end_time": "11/22/2026 23:53:50.864",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "16.050",
+      "slots": "40"
+    },
+    {
+      "taskid": "28",
+      "start_time": "11/22/2026 23:53:41.155",
+      "end_time": "11/22/2026 23:54:09.019",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "14.731",
+      "slots": "40"
+    },
+    {
+      "taskid": "29",
+      "start_time": "11/22/2026 23:54:03.240",
+      "end_time": "11/22/2026 23:54:29.487",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "15.738",
+      "slots": "40"
+    },
+    {
+      "taskid": "15",
+      "start_time": "11/22/2026 23:43:03.603",
+      "end_time": "11/22/2026 23:54:46.978",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "18118.638",
+      "slots": "40"
+    },
+    {
+      "taskid": "30",
+      "start_time": "11/22/2026 23:54:27.859",
+      "end_time": "11/22/2026 23:55:05.067",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "15.694",
+      "slots": "40"
+    },
+    {
+      "taskid": "20",
+      "start_time": "11/22/2026 23:50:12.718",
+      "end_time": "11/22/2026 23:55:23.645",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "639.637",
+      "slots": "40"
+    },
+    {
+      "taskid": "9",
+      "start_time": "11/22/2026 23:17:35.165",
+      "end_time": "11/22/2026 23:55:41.386",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "78971.053",
+      "slots": "40"
+    },
+    {
+      "taskid": "1",
+      "start_time": "11/22/2026 23:01:19.175",
+      "end_time": "11/22/2026 23:55:58.564",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "116831.583",
+      "slots": "40"
+    },
+    {
+      "taskid": "4",
+      "start_time": "11/22/2026 23:03:06.201",
+      "end_time": "11/22/2026 23:56:14.061",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "111469.880",
+      "slots": "40"
+    },
+    {
+      "taskid": "3",
+      "start_time": "11/22/2026 23:01:28.977",
+      "end_time": "11/22/2026 23:56:30.348",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "116872.916",
+      "slots": "40"
+    },
+    {
+      "taskid": "11",
+      "start_time": "11/22/2026 23:26:16.436",
+      "end_time": "11/22/2026 23:56:47.239",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "57558.807",
+      "slots": "40"
+    },
+    {
+      "taskid": "12",
+      "start_time": "11/22/2026 23:26:08.428",
+      "end_time": "11/22/2026 23:57:05.048",
+      "exit_status": "0",
+      "failed": "0",
+      "cpu": "66333.586",
+      "slots": "40"
+    }
+  ]
+}
