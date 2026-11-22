@@ -1,0 +1,142 @@
+[
+  {
+    "id": "Mitten-975",
+    "n": 975,
+    "k": 195,
+    "ranks": [
+      390,
+      390
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 24,
+      "Z": 24
+    }
+  },
+  {
+    "id": "Mitten-975_p22_r3_v0",
+    "n": 1650,
+    "k": 330,
+    "ranks": [
+      660,
+      660
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 30,
+      "Z": 38
+    }
+  },
+  {
+    "id": "established_2325",
+    "n": 2325,
+    "k": 465,
+    "ranks": [
+      930,
+      930
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 84,
+      "Z": 30
+    }
+  },
+  {
+    "id": "Hong-390",
+    "n": 390,
+    "k": 78,
+    "ranks": [
+      156,
+      156
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 42,
+      "Z": 16
+    }
+  },
+  {
+    "id": "Hong-390_p61_r47_v2",
+    "n": 915,
+    "k": 183,
+    "ranks": [
+      366,
+      366
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 18,
+      "Z": 88
+    }
+  },
+  {
+    "id": "Hong-550",
+    "n": 550,
+    "k": 110,
+    "ranks": [
+      220,
+      220
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 50,
+      "Z": 18
+    }
+  },
+  {
+    "id": "Hong-550_p41_r18_v1",
+    "n": 1025,
+    "k": 205,
+    "ranks": [
+      410,
+      410
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 24,
+      "Z": 24
+    }
+  },
+  {
+    "id": "LS-P31-2X5",
+    "n": 899,
+    "k": 279,
+    "ranks": [
+      310,
+      310
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 8,
+      "Z": 8
+    }
+  },
+  {
+    "id": "LS-P31-2X5_p47_rNone_v5",
+    "n": 1363,
+    "k": 423,
+    "ranks": [
+      470,
+      470
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 14,
+      "Z": 14
+    }
+  },
+  {
+    "id": "LS-P31-2X5_p61_rNone_v1",
+    "n": 1769,
+    "k": 549,
+    "ranks": [
+      610,
+      610
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 15,
+      "Z": 15
+    }
+  }
+]

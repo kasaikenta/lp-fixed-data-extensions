@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite this fixed release when using these code data and verification records."
+title: "Fixed-data extensions of high-rate lifted-product codes: code data and distance-verification records"
+type: dataset
+authors:
+  - family-names: Kasai
+    given-names: Kenta
+version: 1.0.0
+date-released: 2026-11-22
+url: "https://github.com/kasaikenta/lp-fixed-data-extensions/releases/tag/v1.0.0"
+repository-code: "https://github.com/kasaikenta/lp-fixed-data-extensions"

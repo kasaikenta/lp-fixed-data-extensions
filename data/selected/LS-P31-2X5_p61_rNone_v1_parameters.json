@@ -1,0 +1,21 @@
+{
+  "cutoffs": [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "id": "LS-P31-2X5_p61_rNone_v1",
+  "max_check_weight": 13,
+  "max_n": 2000,
+  "min_rate": 0.3103448275862069,
+  "p": 61,
+  "parent": "LS-P31-2X5",
+  "rho": null,
+  "rule": 1,
+  "seed": 2026112201
+}

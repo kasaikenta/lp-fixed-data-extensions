@@ -1,0 +1,17 @@
+{
+  "cutoffs": [
+    18,
+    19,
+    20,
+    21
+  ],
+  "id": "Hong-550_p41_r18_v1",
+  "max_check_weight": 9,
+  "max_n": 2000,
+  "min_rate": 0.2,
+  "p": 41,
+  "parent": "Hong-550",
+  "rho": 18,
+  "rule": 1,
+  "seed": 2026112201
+}

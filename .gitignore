@@ -1,0 +1,5 @@
+receipts/
+verification_results/
+__pycache__/
+*.pyc
+*.tar.gz

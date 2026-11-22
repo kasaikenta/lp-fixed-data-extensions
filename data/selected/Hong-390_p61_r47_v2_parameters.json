@@ -1,0 +1,17 @@
+{
+  "cutoffs": [
+    16,
+    17,
+    18,
+    19
+  ],
+  "id": "Hong-390_p61_r47_v2",
+  "max_check_weight": 9,
+  "max_n": 2000,
+  "min_rate": 0.2,
+  "p": 61,
+  "parent": "Hong-390",
+  "rho": 47,
+  "rule": 2,
+  "seed": 2026112202
+}

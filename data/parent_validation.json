@@ -1,0 +1,142 @@
+[
+  {
+    "parent": "Mitten-975",
+    "n": 975,
+    "k": 195,
+    "rate": 0.2,
+    "ranks": [
+      390,
+      390
+    ],
+    "css_ok": true,
+    "row_weights": [
+      {
+        "9": 390
+      },
+      {
+        "9": 390
+      }
+    ],
+    "column_weights": [
+      {
+        "3": 780,
+        "6": 195
+      },
+      {
+        "3": 780,
+        "6": 195
+      }
+    ],
+    "matrix_sha256": {
+      "hx": "67c9a0c31dbde332f052d9ab4debef3a5d1ed5e6158cc3cb59587c7a2a82000d",
+      "hz": "d0dd199ed56b1dac81486be535572da4c3305991aab8cf8206ed4761d9f5fe00"
+    },
+    "all_16_rules_reproduce_entrywise": true
+  },
+  {
+    "parent": "Hong-390",
+    "n": 390,
+    "k": 78,
+    "rate": 0.2,
+    "ranks": [
+      156,
+      156
+    ],
+    "css_ok": true,
+    "row_weights": [
+      {
+        "9": 156
+      },
+      {
+        "9": 156
+      }
+    ],
+    "column_weights": [
+      {
+        "3": 312,
+        "6": 78
+      },
+      {
+        "3": 312,
+        "6": 78
+      }
+    ],
+    "matrix_sha256": {
+      "hx": "fbe135e6057879ae8817d0526f4ae7af149459a720f657b6e9be5218d97a3701",
+      "hz": "3e215b747fe3b2cfbd12cfe94abf3ad86714b6e09385fd146b515666c554911a"
+    },
+    "all_16_rules_reproduce_entrywise": true
+  },
+  {
+    "parent": "Hong-550",
+    "n": 550,
+    "k": 110,
+    "rate": 0.2,
+    "ranks": [
+      220,
+      220
+    ],
+    "css_ok": true,
+    "row_weights": [
+      {
+        "9": 220
+      },
+      {
+        "9": 220
+      }
+    ],
+    "column_weights": [
+      {
+        "3": 440,
+        "6": 110
+      },
+      {
+        "3": 440,
+        "6": 110
+      }
+    ],
+    "matrix_sha256": {
+      "hx": "47d186f2da58f563fff389a178a0f2e49235656c7cb4432f5af17ec354d7b45f",
+      "hz": "868ea05d352c1d006801e2cc88d999e689f974afd6b0a4ae820ac02072bb8962"
+    },
+    "all_16_rules_reproduce_entrywise": true
+  },
+  {
+    "parent": "LS-P31-2X5",
+    "n": 899,
+    "k": 279,
+    "rate": 0.3103448275862069,
+    "ranks": [
+      310,
+      310
+    ],
+    "css_ok": true,
+    "row_weights": [
+      {
+        "12": 124,
+        "13": 186
+      },
+      {
+        "12": 124,
+        "13": 186
+      }
+    ],
+    "column_weights": [
+      {
+        "3": 310,
+        "4": 465,
+        "9": 124
+      },
+      {
+        "3": 310,
+        "4": 465,
+        "9": 124
+      }
+    ],
+    "matrix_sha256": {
+      "hx": "443359eece43b3a4d5ee29ee70612c4cb8499300d5bfc408a97752ad77530c31",
+      "hz": "bcacfcb7b49f8b714b7bf5802201940bf00d6b79a00f563a51a26a08e7e81262"
+    },
+    "all_16_rules_reproduce_entrywise": true
+  }
+]
