@@ -29,6 +29,7 @@ Use Python 3.12 or later on Linux or macOS. The checks use the standard library 
 ```sh
 python3 verification/verify_matrices.py
 python3 verification/verify_parent_sources.py
+python3 build_codes.py check
 ```
 
 This independently reconstructs every binary entry from the realized words, checks CSS orthogonality and GF(2) ranks, and verifies every supplied logical operator by zero syndrome and nonmembership in the stabilizer row space. It does not infer lower bounds from an unsuccessful search.
@@ -87,6 +88,6 @@ This is a new computation, not the recorded adaptive schedule. Any timed-out cla
 
 Cite the fixed release, rather than an evolving default branch:
 
-> Kenta Kasai, “Fixed-data extensions of high-rate lifted-product codes: code data and distance-verification records,” version 1.0.0, 2026. https://github.com/kasaikenta/lp-fixed-data-extensions/releases/tag/v1.0.0
+> Kenta Kasai, “Fixed-data extensions of high-rate lifted-product codes: code data and distance-verification records,” version 1.0.1, 2026. https://github.com/kasaikenta/lp-fixed-data-extensions/releases/tag/v1.0.1
 
 Use [CITATION.cff](CITATION.cff) for machine-readable citation details. Receipt archive checksums are pinned in the tagged repository.

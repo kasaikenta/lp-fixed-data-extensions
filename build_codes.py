@@ -102,29 +102,18 @@ def describe(code):
             'matrix_sha256':{k:hashlib.sha256(json.dumps([support(v) for v in rows]).encode()).hexdigest() for k,rows in [('hx',code.hx),('hz',code.hz)]}}
 
 def parents_check():
-    import numpy as np
     records=[]
     for name in ['Mitten-975','Hong-390','Hong-550','LS-P31-2X5']:
-        par=parent(name);spec={'id':name,'parent':name,'p':par['p0'],'rho':par.get('rho0'),'rule':0,'seed':0}
-        code=make(spec)
-        if name=='Mitten-975':
-            z=np.load(ROOT/'reference/mitten975.npz')
-            for key,rows in [('Hx',code.hx),('Hz',code.hz)]:
-                expected=[sum(1<<int(i) for i in np.flatnonzero(row)) for row in z[key]]
-                assert rows==expected,(name,key)
-        else:
-            old=CSSCode.load(ROOT/'reference'/f'{name}.json')
-            assert code.hx==old.hx and code.hz==old.hz,name
-        # Every representative rule must reproduce the same actual matrices at p0.
+        par=parent(name)
+        spec={'id':name,'parent':name,'p':par['p0'],'rho':par.get('rho0'),'rule':0,'seed':0}
+        code=make(spec);old=CSSCode.load(ROOT/'reference'/f'{name}.json')
+        assert code.hx==old.hx and code.hz==old.hz,name
         for rid in range(1,16):
             trial=make({**spec,'rule':rid,'seed':2026112200+rid})
             assert trial.hx==code.hx and trial.hz==code.hz,(name,rid)
         records.append({'parent':name,**describe(code),'all_16_rules_reproduce_entrywise':True})
-        if name=='Mitten-975':
-            oldroot=ROOT.parent/'mitten_explicit_extensions_20261122/candidates/p13_w15'
-            code.document['witnesses']={s:[read(oldroot/f'classical_{s}.json')['support']] for s in ['X','Z']}
-            CSSCode(code.document).save(ROOT/'reference/Mitten-975.json')
-    write(ROOT/'parent_validation.json',records);print(json.dumps(records))
+    out=ROOT/'verification_results';out.mkdir(exist_ok=True)
+    write(out/'parent_generation.json',records);print(json.dumps(records))
 
 def manifest():
     specs=[]

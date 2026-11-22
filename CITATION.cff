@@ -5,7 +5,7 @@ type: dataset
 authors:
   - family-names: Kasai
     given-names: Kenta
-version: 1.0.0
+version: 1.0.1
 date-released: 2026-11-22
-url: "https://github.com/kasaikenta/lp-fixed-data-extensions/releases/tag/v1.0.0"
+url: "https://github.com/kasaikenta/lp-fixed-data-extensions/releases/tag/v1.0.1"
 repository-code: "https://github.com/kasaikenta/lp-fixed-data-extensions"
