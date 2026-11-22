@@ -42,7 +42,7 @@ To generate the extension directly from the fixed expressions:
 python3 build_codes.py generate --p 22 --rho 3 --out verification_results/generated_mitten.json
 ```
 
-This reproduction generator accepts only p and rho; m=15 and the Mitten constituent expressions are fixed. The manuscript presents this single extension directly, with the same fixed expressions and m=15, without a separate general algorithm. Generated files reproduce the selected binary matrices but need not have the same metadata fingerprint as the original search inputs. Recorded receipts are checked against the unchanged files in `data/selected/`.
+This reproduction generator accepts only p and rho; m=15 and the Mitten constituent expressions are fixed. The manuscript presents a shared extension method for group-algebra LP codes with arbitrary constituent matrix sizes and finite evaluation groups. This Mitten extension is its only worked and distance-verified example; its expressions and m=15 remain fixed. The method is explained in prose, without a separate algorithm. Generated files reproduce the selected binary matrices but need not have the same metadata fingerprint as the original search inputs. Recorded receipts are checked against the unchanged files in `data/selected/`.
 
 Changing the group changes which small supports have zero syndrome or represent nontrivial logical operators. Distance improvement is established for the selected matrices by the exhaustive computations below; the group conditions alone ensure orthogonality.
 
