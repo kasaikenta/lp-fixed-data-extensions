@@ -1,5 +1,3 @@
 id,family,kind,n,k,rate,d_lower,d_upper,dX_lower,dX_upper,dZ_lower,dZ_upper,column_weights,row_weights,gX,gZ
 Mitten-975,Mitten-975,P,975,195,0.2,24,24,24,24,24,24,3;6,9,4,4
 Mitten-975_p22_r3_v0,Mitten-975,E1,1650,330,0.2,30,30,30,30,30,38,3;6,9,4,4
-Hong-550,Hong-550,P,550,110,0.2,18,18,18,50,18,18,3;6,9,6,6
-Hong-550_p41_r18_v1,Hong-550,E1,1025,205,0.2,24,24,24,24,24,24,3;6,9,6,6

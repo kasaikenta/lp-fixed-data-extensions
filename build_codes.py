@@ -1,14 +1,13 @@
-"""Frozen integer-support specializations of compact LP presentations."""
+"""Generate the fixed-constituent Mitten LP code; only p and rho vary."""
 from pathlib import Path
-import collections, copy, hashlib, json, math, random, sys
+import argparse,collections,hashlib,json,sys
 ROOT=Path(__file__).resolve().parent
 sys.path.insert(0,str(ROOT/'vendor/QEDist'))
+sys.path.insert(0,str(ROOT/'verification'))
 from cssdist.code import CSSCode
-from cssdist.constructors import cyclic_lp
 from cssdist.algebra import support
-
-def read(p):return json.loads(Path(p).read_text())
-def write(p,d):Path(p).write_text(json.dumps(d,indent=2)+'\n')
+from verify_constructions import MITTEN,evaluate
+import math
 
 def group_lp(p,m,rho,ring,order='ji'):
     assert math.gcd(rho,p)==1 and pow(rho,m,p)==1
@@ -47,49 +46,8 @@ def group_lp(p,m,rho,ring,order='ji'):
          symmetry_generators=generators,cyclic_period=1)
     return code
 
-def parent(name):
-    if name=='Mitten-975':
-        d=read(ROOT/'reference/mitten_parameters.json')
-        # Stored mitten b terms use right inverse multiplication.
-        # Convert the fixed terms to right-positive normal coordinates.
-        # The symbolic inversion, not its original modular residue, is retained below.
-        return {'kind':'group','p0':13,'m':15,'rho0':9,'ring':d['ring'],'inverse_right':True,'order':'ij','distance':24,'rate':.2,'weight':9}
-    doc=read(ROOT/'reference'/f'{name}.json');c=doc['construction']
-    if name.startswith('Hong'):
-        p,m,rho=c['group']
-        return {'kind':'group','p0':p,'m':m,'rho0':rho,'ring':dict(zip(['a0','a1','b0','b1'],[c['polynomials'][k] for k in 'abcd'])),'order':'ji','distance':16 if p==26 else 18,'rate':.2,'weight':9}
-    return {'kind':'cyclic','p0':31,'A':c['A'],'distance':8,'rate':279/899,'weight':13}
-
-def rule_ring(base,rule,seed):
-    ring=copy.deepcopy(base)
-    rng=random.Random(seed)
-    if rule:
-        for key,terms in ring.items():
-            for pair in terms:
-                if pair != [0,0]:pair[0] += rule['p0']*rng.choice([-1,0,1])
-    return ring
-
-def make(spec):
-    par=parent(spec['parent']);p=spec['p'];rid=spec['rule'];seed=spec['seed']
-    if par['kind']=='group':
-        ring=rule_ring(par['ring'],{'p0':par['p0']} if rid else None,seed)
-        if par.get('inverse_right'):
-            # (x^i w^j)^-1=x^(-rho^-j i) w^-j, evaluated at EACH target.
-            for key in ['b0','b1']:
-                ring[key]=[[(-pow(spec['rho'],(-j)%par['m'],p)*i)%p,(-j)%par['m']] for i,j in ring[key]]
-        code=group_lp(p,par['m'],spec['rho'],ring,par['order'])
-    else:
-        A=copy.deepcopy(par['A']);rng=random.Random(seed)
-        if rid:
-            for row in A:
-                for terms in row:
-                    for term in terms:term[0] += 31*rng.choice([-1,0,1])
-        code=cyclic_lp(A,period=p,name=spec['id'])
-    code.document['name']=spec['id']
-    code.document['provenance']={'frozen_spec':spec,'parent_distance':par['distance'],'method':'fixed integer support and group-action specialization'}
-    return code
-
 def hist(values):return dict(sorted(collections.Counter(values).items()))
+
 def describe(code):
     cols=[]
     for rows in [code.hx,code.hz]:
@@ -101,39 +59,24 @@ def describe(code):
             'row_weights':[hist(r.bit_count() for r in rows) for rows in [code.hx,code.hz]],'column_weights':cols,
             'matrix_sha256':{k:hashlib.sha256(json.dumps([support(v) for v in rows]).encode()).hexdigest() for k,rows in [('hx',code.hx),('hz',code.hz)]}}
 
-def parents_check():
-    records=[]
-    for name in ['Mitten-975','Hong-550']:
-        par=parent(name)
-        spec={'id':name,'parent':name,'p':par['p0'],'rho':par.get('rho0'),'rule':0,'seed':0}
-        code=make(spec);old=CSSCode.load(ROOT/'reference'/f'{name}.json')
-        assert code.hx==old.hx and code.hz==old.hz,name
-        for rid in range(1,16):
-            trial=make({**spec,'rule':rid,'seed':2026112200+rid})
-            assert trial.hx==code.hx and trial.hz==code.hz,(name,rid)
-        records.append({'parent':name,**describe(code),'all_16_rules_reproduce_entrywise':True})
-    out=ROOT/'verification_results';out.mkdir(exist_ok=True)
-    write(out/'parent_generation.json',records);print(json.dumps(records))
 
-def manifest():
-    specs=[]
-    for name in ['Mitten-975','Hong-550']:
-        par=parent(name)
-        sizes={'Mitten-975':list(range(14,27)),'Hong-390':[31,37,43,49,61],'Hong-550':[31,41,61,71],'LS-P31-2X5':[37,41,43,47,53,61]}[name]
-        for rid in range(16):
-            for p in sizes:
-                rhos=[None] if par['kind']=='cyclic' else sorted({(par['rho0']+par['p0']*t)%p for t in range(64) if math.gcd((par['rho0']+par['p0']*t)%p,p)==1 and pow((par['rho0']+par['p0']*t)%p,par['m'],p)==1})
-                for rho in rhos:
-                    ident=f'{name}_p{p}_r{rho}_v{rid}'
-                    specs.append({'id':ident,'parent':name,'p':p,'rho':rho,'rule':rid,'seed':2026112200+rid,
-                                  'cutoffs':list(range(par['distance'],{'Mitten-975':30,'Hong-390':20,'Hong-550':22,'LS-P31-2X5':16}[name])),
-                                  'max_n':2000,'min_rate':par['rate'],'max_check_weight':par['weight']})
-    # Breadth first: unmodified representatives for every parent, then alternatives.
-    specs.sort(key=lambda d:(d['rule'],d['p'],d['parent'],d['rho'] or 0))
-    write(ROOT/'manifest.json',{'frozen_before_distance_evaluation':True,'rules':16,'specs':specs,
-          'one_hour_epoch':True,'automatic_resubmission':False,'methods':'group regular LP and cyclic polynomial LP; not full single-APM algorithms'})
-    print(json.dumps({'candidates':len(specs),'parents':hist(s['parent'] for s in specs)}))
+def make(p,rho):
+    fixed=evaluate(MITTEN,(p,15,rho),'ij')
+    return group_lp(p,15,rho,fixed['ring'],'ij')
 
 if __name__=='__main__':
-    if sys.argv[1]=='check':parents_check()
-    elif sys.argv[1]=='manifest':manifest()
+    parser=argparse.ArgumentParser();sub=parser.add_subparsers(dest='command',required=True)
+    sub.add_parser('check')
+    generate=sub.add_parser('generate');generate.add_argument('--p',type=int,required=True);generate.add_argument('--rho',type=int,required=True);generate.add_argument('--out',type=Path,required=True)
+    args=parser.parse_args()
+    if args.command=='generate':
+        code=make(args.p,args.rho);args.out.parent.mkdir(parents=True,exist_ok=True)
+        args.out.write_text(json.dumps(code.document,indent=2)+'\n');print(json.dumps(describe(code)))
+    else:
+        result=[]
+        for ident,p,rho in [('Mitten-975',13,9),('Mitten-975_p22_r3_v0',22,3)]:
+            code=make(p,rho);stored=CSSCode.load(ROOT/'data/selected'/f'{ident}.json')
+            assert code.hx==stored.hx and code.hz==stored.hz
+            result.append({'id':ident,**describe(code),'fixed_expressions':True})
+        out=ROOT/'verification_results';out.mkdir(exist_ok=True)
+        (out/'fixed_generation.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))

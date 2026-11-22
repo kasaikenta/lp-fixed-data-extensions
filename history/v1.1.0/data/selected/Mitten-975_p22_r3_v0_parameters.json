@@ -1,0 +1,19 @@
+{
+  "cutoffs": [
+    24,
+    25,
+    26,
+    27,
+    28,
+    29
+  ],
+  "id": "Mitten-975_p22_r3_v0",
+  "max_check_weight": 9,
+  "max_n": 2000,
+  "min_rate": 0.2,
+  "p": 22,
+  "parent": "Mitten-975",
+  "rho": 3,
+  "rule": 0,
+  "seed": 2026112200
+}

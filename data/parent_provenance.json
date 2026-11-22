@@ -1,13 +1,5 @@
 [
   {
-    "id": "Hong-550",
-    "url": "https://raw.githubusercontent.com/yeon-lee/QEDist/aeb7006147b777c121fd3ab8c6841da99238a84e/examples/catalogue/paper/Hong-550.json",
-    "sha256": "cdefbb0451fb4512d516556a797c5f47ccd898cae2a842db8de2bacad85a3a3d",
-    "identical_physical_matrices": true,
-    "n": 550,
-    "k": 110
-  },
-  {
     "id": "Mitten-975",
     "url": "https://raw.githubusercontent.com/yeon-lee/QEDist/aeb7006147b777c121fd3ab8c6841da99238a84e/examples/catalogue/paper/Mitten-975.json",
     "sha256": "79fc8b62260a8d33c7d3d2141468b63acd4884a58c386c2ba724a3ca49b8e9cb",

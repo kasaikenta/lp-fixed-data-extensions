@@ -1,0 +1,58 @@
+[
+  {
+    "id": "Mitten-975",
+    "n": 975,
+    "k": 195,
+    "ranks": [
+      390,
+      390
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 24,
+      "Z": 24
+    }
+  },
+  {
+    "id": "Mitten-975_p22_r3_v0",
+    "n": 1650,
+    "k": 330,
+    "ranks": [
+      660,
+      660
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 30,
+      "Z": 38
+    }
+  },
+  {
+    "id": "Hong-550",
+    "n": 550,
+    "k": 110,
+    "ranks": [
+      220,
+      220
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 50,
+      "Z": 18
+    }
+  },
+  {
+    "id": "Hong-550_p41_r18_v1",
+    "n": 1025,
+    "k": 205,
+    "ranks": [
+      410,
+      410
+    ],
+    "reconstructed": true,
+    "upper_witnesses": {
+      "X": 24,
+      "Z": 24
+    }
+  }
+]

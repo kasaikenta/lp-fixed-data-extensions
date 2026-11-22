@@ -1,0 +1,22 @@
+[
+  {
+    "id": "Mitten-975_p22_r3_v0",
+    "cutoff": 29,
+    "mode": "nested",
+    "attempts": 281626,
+    "asset": "Mitten-975_p22_r3_v0_w29.tar.gz",
+    "bytes": 171069287,
+    "sha256": "3aff4a6050bf582c6941c39be744ef5fff87ab526d931cc4c3a3374bc365423d",
+    "code_sha256": "a1d45bd138ec4286d94dfa59af1a1bbe200cf47c27cf583df341140a8477836b"
+  },
+  {
+    "id": "Hong-550_p41_r18_v1",
+    "cutoff": 23,
+    "mode": "nested",
+    "attempts": 3608,
+    "asset": "Hong-550_p41_r18_v1_w23.tar.gz",
+    "bytes": 2204783,
+    "sha256": "957f476267aa818ed951f2c2dfdb66dd60a613c0fe6c3f0a83016f9a4209326f",
+    "code_sha256": "da7451c63356e839aff8a05b3c840ff869dbaafdb5ea36fac05343e8090c50cf"
+  }
+]

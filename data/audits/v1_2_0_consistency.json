@@ -1,0 +1,11 @@
+{
+  "retained_code": "Mitten-975_p22_r3_v0",
+  "matrix_files_unchanged": true,
+  "receipt_auditor_unchanged": true,
+  "evidence_asset_unchanged_from": "v1.1.0",
+  "evidence_sha256": "3aff4a6050bf582c6941c39be744ef5fff87ab526d931cc4c3a3374bc365423d",
+  "cutoff": 29,
+  "full_receipt_audit_reused": true,
+  "distance_search_rerun": false,
+  "fixed_expression_matrix_reconstruction": true
+}

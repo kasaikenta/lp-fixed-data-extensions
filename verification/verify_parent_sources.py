@@ -1,4 +1,4 @@
-"""Match both selected parents to the pinned public QEDist catalogue."""
+"""Match the original Mitten code to the pinned public QEDist catalogue."""
 from pathlib import Path
 import hashlib,json,urllib.request
 R=Path(__file__).resolve().parents[1]

@@ -2,7 +2,7 @@
 from pathlib import Path
 import hashlib,json,tarfile,urllib.request,tempfile
 R=Path(__file__).resolve().parents[1]
-BASE='https://github.com/kasaikenta/lp-fixed-data-extensions/releases/download/v1.1.0/'
+BASE='https://github.com/kasaikenta/lp-fixed-data-extensions/releases/download/v1.2.0/'
 for a in json.loads((R/'data/receipt_archives.json').read_text()):
  with tempfile.TemporaryDirectory() as td:
   dest=Path(td)/a['asset'];urllib.request.urlretrieve(BASE+a['asset'],dest)

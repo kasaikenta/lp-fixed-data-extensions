@@ -1,1 +1,1 @@
-Earlier research snapshots are retained for provenance. They are not the selected results of the current manuscript. For runnable old releases use the v1.0.1 Git tag; paths in archived snapshots are relative to that release.
+Earlier selections and generation methods are retained for provenance. They are not part of the current Mitten-only manuscript. For runnable historical snapshots use the v1.0.1 or v1.1.0 Git tag; archived paths are relative to their original release.

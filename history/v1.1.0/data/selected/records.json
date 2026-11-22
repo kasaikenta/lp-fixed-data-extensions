@@ -1,0 +1,526 @@
+[
+  {
+    "P": 195,
+    "code_sha256": "1f0e54d792762a13f34b4e2adbe9ada7e081d1d4edb206d8bda943a331a3e267",
+    "exact_distance": 24,
+    "family": "Mitten-975",
+    "geometry": {
+      "X": {
+        "column_weights": [
+          3,
+          6
+        ],
+        "cycle": [
+          107,
+          415,
+          21,
+          1349
+        ],
+        "four_cycles_excluded": false,
+        "girth": 4,
+        "row_weights": [
+          9
+        ]
+      },
+      "Z": {
+        "column_weights": [
+          3,
+          6
+        ],
+        "cycle": [
+          4,
+          412,
+          0,
+          1346
+        ],
+        "four_cycles_excluded": false,
+        "girth": 4,
+        "row_weights": [
+          9
+        ]
+      }
+    },
+    "id": "Mitten-975",
+    "k": 195,
+    "kind": "P",
+    "lower": 24,
+    "n": 975,
+    "ranks": [
+      390,
+      390
+    ],
+    "rechecked": true,
+    "row_weight_max": 9,
+    "source": "Parent lower bound and exact global distance: QEDist catalogue; upper witnesses checked here",
+    "supports": {
+      "X": [
+        4,
+        7,
+        9,
+        35,
+        43,
+        98,
+        123,
+        151,
+        167,
+        173,
+        178,
+        226,
+        235,
+        241,
+        267,
+        270,
+        281,
+        298,
+        304,
+        305,
+        363,
+        375,
+        379,
+        381
+      ],
+      "Z": [
+        2,
+        13,
+        14,
+        29,
+        61,
+        73,
+        80,
+        125,
+        152,
+        164,
+        169,
+        179,
+        391,
+        430,
+        433,
+        475,
+        477,
+        499,
+        526,
+        538,
+        546,
+        549,
+        561,
+        583
+      ]
+    },
+    "upper": {
+      "X": 24,
+      "Z": 24
+    },
+    "rate": 0.2
+  },
+  {
+    "P": 330,
+    "attempts": 281626,
+    "code_sha256": "a1d45bd138ec4286d94dfa59af1a1bbe200cf47c27cf583df341140a8477836b",
+    "evidence": "Physical matrices rebuilt; full source/receipt/nested partition coverage audited locally; logical supports verified",
+    "exact_distance": 30,
+    "family": "Mitten-975",
+    "geometry": {
+      "X": {
+        "column_weights": [
+          3,
+          6
+        ],
+        "cycle": [
+          48,
+          731,
+          22,
+          1980
+        ],
+        "four_cycles_excluded": false,
+        "girth": 4,
+        "row_weights": [
+          9
+        ]
+      },
+      "Z": {
+        "column_weights": [
+          3,
+          6
+        ],
+        "cycle": [
+          4,
+          682,
+          0,
+          2156
+        ],
+        "four_cycles_excluded": false,
+        "girth": 4,
+        "row_weights": [
+          9
+        ]
+      }
+    },
+    "id": "Mitten-975_p22_r3_v0",
+    "k": 330,
+    "kind": "E1",
+    "lower": 30,
+    "n": 1650,
+    "new_audits": [
+      {
+        "cutoff": 29,
+        "attempts": 281626,
+        "nodes": 1256782502153,
+        "path": "data/audits/Mitten-975_p22_r3_v0_w29.json"
+      }
+    ],
+    "nodes": 1256782502153,
+    "parent": "Mitten-975",
+    "passed": true,
+    "ranks": [
+      660,
+      660
+    ],
+    "rate": 0.2,
+    "rechecked": true,
+    "row_weight_max": 9,
+    "supports": {
+      "X": [
+        78,
+        81,
+        95,
+        153,
+        171,
+        179,
+        229,
+        235,
+        254,
+        282,
+        285,
+        337,
+        360,
+        384,
+        398,
+        413,
+        415,
+        432,
+        435,
+        488,
+        505,
+        530,
+        552,
+        553,
+        573,
+        590,
+        591,
+        594,
+        602,
+        643
+      ],
+      "Z": [
+        31,
+        70,
+        90,
+        111,
+        115,
+        121,
+        174,
+        186,
+        194,
+        219,
+        234,
+        251,
+        257,
+        260,
+        283,
+        308,
+        315,
+        321,
+        678,
+        681,
+        683,
+        719,
+        732,
+        736,
+        745,
+        773,
+        779,
+        791,
+        812,
+        864,
+        892,
+        914,
+        927,
+        934,
+        940,
+        943,
+        971,
+        988
+      ]
+    },
+    "upper": {
+      "X": 30,
+      "Z": 38
+    }
+  },
+  {
+    "P": 110,
+    "code_sha256": "cdefbb0451fb4512d516556a797c5f47ccd898cae2a842db8de2bacad85a3a3d",
+    "exact_distance": 18,
+    "family": "Hong-550",
+    "geometry": {
+      "X": {
+        "column_weights": [
+          3,
+          6
+        ],
+        "cycle": [
+          68,
+          440,
+          0,
+          232,
+          47,
+          741
+        ],
+        "four_cycles_excluded": true,
+        "girth": 6,
+        "row_weights": [
+          9
+        ]
+      },
+      "Z": {
+        "column_weights": [
+          3,
+          6
+        ],
+        "cycle": [
+          26,
+          356,
+          0,
+          220,
+          38,
+          686
+        ],
+        "four_cycles_excluded": true,
+        "girth": 6,
+        "row_weights": [
+          9
+        ]
+      }
+    },
+    "id": "Hong-550",
+    "k": 110,
+    "kind": "P",
+    "lower": 18,
+    "n": 550,
+    "ranks": [
+      220,
+      220
+    ],
+    "rechecked": true,
+    "row_weight_max": 9,
+    "source": "Parent lower bound and exact global distance: QEDist catalogue; upper witnesses checked here",
+    "supports": {
+      "X": [
+        224,
+        320,
+        321,
+        322,
+        324,
+        329,
+        341,
+        342,
+        345,
+        346,
+        347,
+        348,
+        360,
+        366,
+        367,
+        368,
+        369,
+        370,
+        371,
+        375,
+        378,
+        379,
+        380,
+        385,
+        386,
+        394,
+        398,
+        399,
+        400,
+        401,
+        402,
+        403,
+        409,
+        411,
+        414,
+        415,
+        416,
+        417,
+        421,
+        422,
+        424,
+        425,
+        426,
+        427,
+        428,
+        429,
+        431,
+        435,
+        437,
+        439
+      ],
+      "Z": [
+        9,
+        22,
+        23,
+        33,
+        35,
+        43,
+        70,
+        82,
+        104,
+        229,
+        252,
+        260,
+        289,
+        290,
+        297,
+        304,
+        305,
+        316
+      ]
+    },
+    "upper": {
+      "X": 50,
+      "Z": 18
+    },
+    "rate": 0.2
+  },
+  {
+    "P": 205,
+    "attempts": 3608,
+    "code_sha256": "da7451c63356e839aff8a05b3c840ff869dbaafdb5ea36fac05343e8090c50cf",
+    "evidence": "Physical matrices rebuilt; full source/receipt/nested partition coverage audited locally; logical supports verified",
+    "exact_distance": 24,
+    "family": "Hong-550",
+    "geometry": {
+      "X": {
+        "column_weights": [
+          3,
+          6
+        ],
+        "cycle": [
+          131,
+          550,
+          0,
+          419,
+          9,
+          843
+        ],
+        "four_cycles_excluded": true,
+        "girth": 6,
+        "row_weights": [
+          9
+        ]
+      },
+      "Z": {
+        "column_weights": [
+          3,
+          6
+        ],
+        "cycle": [
+          169,
+          633,
+          0,
+          410,
+          57,
+          1278
+        ],
+        "four_cycles_excluded": true,
+        "girth": 6,
+        "row_weights": [
+          9
+        ]
+      }
+    },
+    "id": "Hong-550_p41_r18_v1",
+    "k": 205,
+    "kind": "E1",
+    "lower": 24,
+    "n": 1025,
+    "new_audits": [
+      {
+        "cutoff": 23,
+        "attempts": 3608,
+        "nodes": 17741185791,
+        "path": "data/audits/Hong-550_p41_r18_v1_w23.json"
+      }
+    ],
+    "nodes": 17741185791,
+    "parent": "Hong-550",
+    "passed": true,
+    "ranks": [
+      410,
+      410
+    ],
+    "rate": 0.2,
+    "rechecked": true,
+    "row_weight_max": 9,
+    "supports": {
+      "X": [
+        0,
+        10,
+        17,
+        34,
+        50,
+        63,
+        82,
+        91,
+        95,
+        105,
+        108,
+        121,
+        154,
+        202,
+        215,
+        258,
+        267,
+        268,
+        297,
+        309,
+        330,
+        344,
+        346,
+        347
+      ],
+      "Z": [
+        1,
+        8,
+        17,
+        33,
+        74,
+        82,
+        86,
+        92,
+        96,
+        114,
+        119,
+        185,
+        200,
+        434,
+        457,
+        462,
+        476,
+        489,
+        502,
+        507,
+        510,
+        520,
+        609,
+        610
+      ]
+    },
+    "upper": {
+      "X": 24,
+      "Z": 24
+    }
+  }
+]

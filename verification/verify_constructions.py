@@ -1,4 +1,4 @@
-"""Verify the explicit expressions used in manuscript Table 2.
+"""Verify the fixed Mitten expressions used in manuscript Table 2.
 
 Run from any directory: python3 verification/verify_constructions.py
 Only standard Python libraries and the bundled verify_matrices.py are needed.
@@ -26,19 +26,9 @@ MITTEN = [
     [[('w', -7), ('x', -1)], [('w', -3), ('x', -3)], [('w', -12), ('x', -9)]],
     [[], [('w', -2), ('x', -9)], [('w', -14), ('x', -6)]],
 ]
-HONG_PARENT = [[xw(i, j) for i, j in terms] for terms in [
-    [(0, 0), (10, 0), (5, 2)], [(0, 0), (8, 0), (2, 3)],
-    [(0, 0), (7, 0), (16, 1)], [(0, 0), (1, 0), (6, 4)],
-]]
-HONG_EXTENSION = [[xw(i, j) for i, j in terms] for terms in [
-    [(0, 0), (32, 0), (27, 2)], [(0, 0), (-14, 0), (24, 3)],
-    [(0, 0), (7, 0), (16, 1)], [(0, 0), (23, 0), (28, 4)],
-]]
 ROWS = [
     ('Mitten-975', 'Mitten LP', 975, (13, 15, 9), 'ij', MITTEN, 'mitten'),
     ('Mitten-975_p22_r3_v0', 'Mitten LP', 1650, (22, 15, 3), 'ij', MITTEN, None),
-    ('Hong-550', 'Hong-550 LP', 550, (22, 5, 3), 'ji', HONG_PARENT, 'hong'),
-    ('Hong-550_p41_r18_v1', 'Hong-550 LP', 1025, (41, 5, 18), 'ji', HONG_EXTENSION, None),
 ]
 
 def evaluate(expressions, params, order):
@@ -80,18 +70,16 @@ def verify():
                         'row_weights': [sorted({v.bit_count() for v in h}) for h in (hx, hz)],
                         'column_weights': [sorted({v.bit_count() for v in transpose(h, n)}) for h in (hx, hz)],
                         'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest()})
-    parent = matrices(evaluate(HONG_PARENT, (22, 5, 3), 'ji'))
-    reevaluated = matrices(evaluate(HONG_EXTENSION, (22, 5, 3), 'ji'))
-    assert parent == reevaluated
+    assert ROWS[0][5] == ROWS[1][5] == MITTEN
     result = {'command': 'python3 verification/verify_constructions.py',
               'right_action': 'R_h e_u = e_(u h); inverses are explicit in the expressions',
-              'hong_extension_expressions_reproduce_parent': True,
+              'constituent_expressions_unchanged': True,
               'distance_search_rerun': False, 'codes': results}
     (ROOT / 'verification_results/construction_table_verification.json').write_text(
         json.dumps(result, ensure_ascii=False, indent=2) + '\n')
     print(json.dumps({'verified_codes': len(results),
                       'exact_matrix_matches': True,
-                      'hong_extension_expressions_reproduce_parent': True}))
+                      'constituent_expressions_unchanged': True}))
 
 if __name__ == '__main__':
     verify()
