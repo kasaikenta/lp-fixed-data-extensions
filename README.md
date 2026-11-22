@@ -25,7 +25,7 @@ python3 verification/verify_parent_sources.py
 python3 build_codes.py check
 ```
 
-The construction verifier evaluates the explicit expressions in the manuscript’s Mitten example (Section 3.1), reconstructs every binary entry, checks CSS orthogonality, ranks, row weights and column weights, and checks that the two evaluations use identical constituent expressions. Its output is saved in `verification_results/construction_table_verification.json`. The matrix verifier also checks that every stored upper-bound support has zero syndrome and lies outside the stabilizer row space.
+The construction verifier evaluates the explicit expressions in the manuscript’s construction of the Mitten extension (Section 2), reconstructs every binary entry, checks CSS orthogonality, ranks, row weights and column weights, and checks that the two evaluations use identical constituent expressions. Its output is saved in `verification_results/construction_table_verification.json`. The matrix verifier also checks that every stored upper-bound support has zero syndrome and lies outside the stabilizer row space.
 
 The group is G(p,m,rho)=<x,w | x^p=w^m=1, wxw^-1=x^rho>, with gcd(rho,p)=1 and rho^m=1 modulo p. Normal coordinates (i,j) denote x^i w^j and multiply as (i,j)(u,t)=(i+rho^j u,j+t), modulo p and m. Left and right regular actions commute; this establishes CSS orthogonality for the lifted-product construction. The resulting dimension is calculated from the binary ranks.
 
@@ -42,7 +42,7 @@ To generate the extension directly from the fixed expressions:
 python3 build_codes.py generate --p 22 --rho 3 --out verification_results/generated_mitten.json
 ```
 
-This reproduction generator accepts only p and rho; m=15 and the Mitten constituent expressions are fixed. The manuscript algorithm allows general admissible p,m,rho and fixed constituent expressions; the reported example specializes it to m=15. Generated files reproduce the selected binary matrices but need not have the same metadata fingerprint as the original search inputs. Recorded receipts are checked against the unchanged files in `data/selected/`.
+This reproduction generator accepts only p and rho; m=15 and the Mitten constituent expressions are fixed. The manuscript presents this single extension directly, with the same fixed expressions and m=15, without a separate general algorithm. Generated files reproduce the selected binary matrices but need not have the same metadata fingerprint as the original search inputs. Recorded receipts are checked against the unchanged files in `data/selected/`.
 
 Changing the group changes which small supports have zero syndrome or represent nontrivial logical operators. Distance improvement is established for the selected matrices by the exhaustive computations below; the group conditions alone ensure orthogonality.
 
